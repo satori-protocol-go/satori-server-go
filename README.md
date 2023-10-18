@@ -9,7 +9,7 @@ graph TD;
     User(用户)--?-->Chat(聊天平台);
     Adaptor(对应平台的适配器)--API-->Chat(聊天平台);
     Adaptor--资源变更的API/GRPC?-->Server(本服务);
-    Server--内部触发事件后通过satori协议事件（ws）下发-->Client(客户端);
+    Server--内部触发事件后通过satori协议中的事件下发-->Client(客户端);
 ```
 
 #### 1.1.2.客户端行为上报聊天平台
