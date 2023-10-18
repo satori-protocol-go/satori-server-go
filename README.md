@@ -13,7 +13,7 @@ graph TD;
 ```
 #### 1.1.2.客户端行为上报聊天平台
 ```mermaid
-graph TD;
+graph LR;
     Client(客户端)--satori的API-->Server(本服务);
     Server--事件下发API/GRPC?-->Adaptor(对应平台的适配器);
     Adaptor--API-->Chat(聊天平台);
