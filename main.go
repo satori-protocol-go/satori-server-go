@@ -15,24 +15,27 @@ func main() {
 	// 加载配置
 	_, err := config.Load("./config.yaml")
 	if err != nil {
-		panic(err)
+		log.Panicf("load config file has err: %v", err)
 	}
 	// 加载适配器插件
 	instances, err := plugin.Load(ctx, nil)
+	if err != nil {
+		log.Panicf("load plugin has err: %v", err)
+	}
 	for _, instance := range instances {
-		log.Info("process instance%:v", instance)
+		log.Infof("start to process instance: %v", instance)
 		// todo 将插件注入到适配器中心
 		err := adaptor.Register(nil)
 		if err != nil {
 			cancel()
-			panic(err)
+			log.Panicf("register adaptor has err: %v", err)
 		}
 	}
 	// 启动服务
 	err = server.Start(ctx, nil)
 	if err != nil {
 		cancel()
-		panic(err)
+		log.Panicf("start http server has err: %v", err)
 	}
 
 }
