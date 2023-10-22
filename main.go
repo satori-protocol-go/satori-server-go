@@ -22,10 +22,11 @@ func main() {
 	if err != nil {
 		log.Panicf("load plugin has err: %v", err)
 	}
+	adaptorHandler := adaptor.NewHandler()
 	for _, instance := range instances {
 		log.Infof("start to process instance: %v", instance)
 		// todo 将插件注入到适配器中心
-		err := adaptor.Register(nil)
+		err := adaptorHandler.Register(nil)
 		if err != nil {
 			cancel()
 			log.Panicf("register adaptor has err: %v", err)
