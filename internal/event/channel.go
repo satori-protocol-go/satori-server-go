@@ -8,12 +8,12 @@ type ChannelEventInstance interface {
 	EmitChannelUpdated(c channel.Channel) error
 	ListenChannelUpdated(callback EventOpCallback) error
 	EmitChannelDeleted(channel_id string) error
-	ListChannelDelete(callback EventOpCallback) error
+	ListChannelDeleted(callback EventOpCallback) error
 	EmitUserChannelCreated(user_id, guild_id string) error
 	ListUserChannelCreated(callback EventOpCallback) error
 }
 
-func newChannelEventInstanceImpl() *channelEventInstacneImpl {
+func newChannelEventInstanceImpl() ChannelEventInstance {
 	return &channelEventInstacneImpl{}
 }
 
@@ -39,7 +39,7 @@ func (eI *channelEventInstacneImpl) ListenChannelUpdated(callback EventOpCallbac
 func (eI *channelEventInstacneImpl) EmitChannelDeleted(channel_id string) error {
 	return nil
 }
-func (eI *channelEventInstacneImpl) ListChannelDelete(callback EventOpCallback) error {
+func (eI *channelEventInstacneImpl) ListChannelDeleted(callback EventOpCallback) error {
 	return nil
 }
 func (eI *channelEventInstacneImpl) EmitUserChannelCreated(user_id, guild_id string) error {

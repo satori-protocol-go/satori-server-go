@@ -4,14 +4,20 @@ type EventOpCallback func(eventOp EventOp) error
 
 type EventInstance interface {
 	ChannelEventInstance
+	GuildEventInstance
+	GuildMemberEventInstance
 }
 
 type EventInstanceImpl struct {
-	*channelEventInstacneImpl
+	ChannelEventInstance
+	GuildEventInstance
+	GuildMemberEventInstance
 }
 
 func NewEventInstance() EventInstance {
 	return &EventInstanceImpl{
-		channelEventInstacneImpl: newChannelEventInstanceImpl(),
+		ChannelEventInstance:     newChannelEventInstanceImpl(),
+		GuildEventInstance:       newGuildEventInstanceImpl(),
+		GuildMemberEventInstance: newGuildMemberEventInstanceImpl(),
 	}
 }
