@@ -6,12 +6,18 @@ type EventInstance interface {
 	ChannelEventInstance
 	GuildEventInstance
 	GuildMemberEventInstance
+	GuildRoleEventInstance
+	LoginEventInstance
+	MessageEventInstance
 }
 
 type EventInstanceImpl struct {
 	ChannelEventInstance
 	GuildEventInstance
 	GuildMemberEventInstance
+	GuildRoleEventInstance
+	LoginEventInstance
+	MessageEventInstance
 }
 
 func NewEventInstance() EventInstance {
@@ -19,5 +25,8 @@ func NewEventInstance() EventInstance {
 		ChannelEventInstance:     newChannelEventInstanceImpl(),
 		GuildEventInstance:       newGuildEventInstanceImpl(),
 		GuildMemberEventInstance: newGuildMemberEventInstanceImpl(),
+		GuildRoleEventInstance:   newGuildRoleEventInstanceImpl(),
+		LoginEventInstance:       newLoginEventInstanceImpl(),
+		MessageEventInstance:     newMessageEventInstanceImpl(),
 	}
 }
