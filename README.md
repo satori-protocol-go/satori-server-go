@@ -1,6 +1,6 @@
 # satori-server-go
 基于satori协议机器人的服务端
-> WIP: 此项目正处于开发中，且作者是个拖延症晚期
+> ![WIP](https://img.shields.io/badge/WIP-red) 此项目正处于开发中，且作者是个拖延症晚期
 
 [![](https://img.shields.io/github/license/dezhishen/satori-server-go.svg?logo=github)](./LICENSE)
 [![](https://img.shields.io/github/stars/dezhishen/satori-server-go.svg?logo=github)](https://github.com/dezhishen/satori-server-go/stargazers)
