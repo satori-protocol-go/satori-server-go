@@ -2,11 +2,16 @@ package adaptor
 
 import (
 	"context"
-	"fmt"
 	"sync"
+
+	"github.com/dezhishen/satori-server-go/pkg/config"
+	"github.com/dezhishen/satori-server-go/pkg/satori"
 )
 
-type AdaptorInstance interface {
+// Instance 适配器实例
+type Instance interface {
+	satori.APIHandler
+	satori.EventEmitter
 	// 声明自身平台
 	Platform() string
 	// 生命自身ID
@@ -17,45 +22,77 @@ type AdaptorInstance interface {
 	Start(ctx context.Context) error
 }
 
-type adaptorFactory struct {
-	*sync.RWMutex
-	adaptors map[string]map[string]AdaptorInstance
+type InstanceRegistry interface {
+	Register(adaptor Instance) error
+	GetInstance(platform, selfId string) (Instance, bool)
+	GetAllPlatform() []string
+	GetAllSelfIdByPlatform(platform string) []string
 }
 
-func NewGRPCAdaptorInstance() *adaptorFactory {
-	return &adaptorFactory{
-		adaptors: make(map[string]map[string]AdaptorInstance),
+type simpleRWRegistry struct {
+	*sync.RWMutex
+	cfg      config.Cfg
+	adaptors map[string]map[string]Instance
+}
+
+func NewSimpleRegistry(cfg config.Cfg) InstanceRegistry {
+	return &simpleRWRegistry{
+		cfg:      cfg,
+		adaptors: make(map[string]map[string]Instance),
 	}
 }
 
-func (h *adaptorFactory) Register(adaptor AdaptorInstance) error {
+func (h *simpleRWRegistry) Register(instance Instance) error {
 	h.Lock()
 	defer h.Unlock()
-	adaptorUnderSelfId, ok := h.adaptors[adaptor.Platform()]
+	instanceUnderSelfId, ok := h.adaptors[instance.Platform()]
 	if !ok {
-		adaptorUnderSelfId = make(map[string]AdaptorInstance)
-		h.adaptors[adaptor.Platform()] = adaptorUnderSelfId
+		h.adaptors[instance.Platform()] = make(map[string]Instance)
 	}
-	adaptorUnderSelfId[adaptor.SelfId()] = adaptor
+	instanceUnderSelfId[instance.SelfId()] = instance
 	return nil
 }
 
-func (h *adaptorFactory) EmitEvent(platform, selfId string, eventType, eventName string, request interface{}, resp interface{}) error {
-	instance, ok := h.getInstance(platform, selfId)
-	if !ok {
-		return fmt.Errorf("can't find adaptor instance by %s/%s", platform, selfId)
-	}
-	fmt.Print(instance.Platform(), instance.SelfId())
-	return nil
-}
-
-func (h *adaptorFactory) getInstance(platform, selfId string) (AdaptorInstance, bool) {
+func (h *simpleRWRegistry) GetInstance(platform, selfId string) (Instance, bool) {
 	h.RLock()
 	defer h.Unlock()
-	adaptorUnderSelfId, ok := h.adaptors[platform]
+	instanceUnderSelfId, ok := h.adaptors[platform]
 	if !ok {
 		return nil, false
 	}
-	result, ok := adaptorUnderSelfId[selfId]
+	result, ok := instanceUnderSelfId[selfId]
 	return result, ok
+}
+func (h *simpleRWRegistry) GetAllPlatform() []string {
+	h.RLock()
+	defer h.Unlock()
+	if len(h.adaptors) == 0 {
+		return nil
+	}
+	result := make([]string, len(h.adaptors))
+	i := 0
+	for k := range h.adaptors {
+		result[i] = k
+		i++
+	}
+	return result
+}
+
+func (h *simpleRWRegistry) GetAllSelfIdByPlatform(platform string) []string {
+	h.RLock()
+	defer h.Unlock()
+	instanceUnderSelfId, ok := h.adaptors[platform]
+	if !ok {
+		return nil
+	}
+	if len(instanceUnderSelfId) == 0 {
+		return nil
+	}
+	result := make([]string, len(instanceUnderSelfId))
+	i := 0
+	for k := range instanceUnderSelfId {
+		result[i] = k
+		i++
+	}
+	return result
 }
