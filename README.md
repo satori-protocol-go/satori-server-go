@@ -30,7 +30,20 @@ graph LR;
     Adaptor--API-->Chat(聊天平台);
     Chat--?-->User(用户)
 ```
-### 1.2.模块
+
+### 1.2.project-layout
+```
+- internal # 内部包,基于pkg包的实现
+- pkg # 公共包,核心模块和主要逻辑
+  - adaptor # 适配器的定义
+  - application # 本服务本身是一个应用, 这里是针对这个应用的定义
+  - config # 配置的定义
+  - plugin # 插件(不是机器人插件,而是插件开发模式中,插件本身,定义插件)
+  - satori # satori协议下 适配器和机器人插件 的约束
+- main.go #程序启动入口
+```
+
+### 1.3.主要功能模块
 > **横向**切割的功能模块
 
 模块名|说明|建议
