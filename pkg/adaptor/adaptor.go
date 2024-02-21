@@ -4,8 +4,8 @@ import (
 	"context"
 	"sync"
 
-	"github.com/dezhishen/satori-application-go/pkg/config"
-	"github.com/dezhishen/satori-application-go/pkg/satori"
+	"github.com/dezhishen/satori-server-go/pkg/config"
+	"github.com/dezhishen/satori-server-go/pkg/satori"
 )
 
 // Instance 适配器实例

@@ -1,8 +1,8 @@
 package satori
 
 import (
-	"github.com/dezhishen/satori-application-go/pkg/application"
 	"github.com/dezhishen/satori-model-go/pkg/channel"
+	"github.com/dezhishen/satori-server-go/pkg/application"
 )
 
 // API处理

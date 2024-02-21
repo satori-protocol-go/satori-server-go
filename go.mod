@@ -1,4 +1,4 @@
-module github.com/dezhishen/satori-application-go
+module github.com/dezhishen/satori-server-go
 
 go 1.20
 
