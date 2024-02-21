@@ -1,14 +1,14 @@
-# satori-server-go
+# satori-application-go
 基于satori协议机器人的服务端
 > ![WIP](https://img.shields.io/badge/WIP-red) 此项目正处于开发中，且作者是个拖延症晚期
 
-[![](https://img.shields.io/github/license/dezhishen/satori-server-go.svg?logo=github)](./LICENSE)
-[![](https://img.shields.io/github/stars/dezhishen/satori-server-go.svg?logo=github)](https://github.com/dezhishen/satori-server-go/stargazers)
-[![](https://img.shields.io/github/forks/dezhishen/satori-server-go.svg?logo=github)](https://github.com/dezhishen/satori-server-go/network/members)
-[![](https://img.shields.io/github/contributors/dezhishen/satori-server-go.svg?logo=github)](https://github.com/dezhishen/satori-server-go/graphs/contributors)
+[![](https://img.shields.io/github/license/dezhishen/satori-application-go.svg?logo=github)](./LICENSE)
+[![](https://img.shields.io/github/stars/dezhishen/satori-application-go.svg?logo=github)](https://github.com/dezhishen/satori-application-go/stargazers)
+[![](https://img.shields.io/github/forks/dezhishen/satori-application-go.svg?logo=github)](https://github.com/dezhishen/satori-application-go/network/members)
+[![](https://img.shields.io/github/contributors/dezhishen/satori-application-go.svg?logo=github)](https://github.com/dezhishen/satori-application-go/graphs/contributors)
 
-[![](https://img.shields.io/github/commit-activity/m/dezhishen/satori-server-go?logo=github)](https://github.com/dezhishen/satori-server-go/graphs/commit-activity)
-[![](https://img.shields.io/github/last-commit/dezhishen/satori-server-go.svg?logo=github)](https://github.com/dezhishen/satori-server-go/commits)
+[![](https://img.shields.io/github/commit-activity/m/dezhishen/satori-application-go?logo=github)](https://github.com/dezhishen/satori-application-go/graphs/commit-activity)
+[![](https://img.shields.io/github/last-commit/dezhishen/satori-application-go.svg?logo=github)](https://github.com/dezhishen/satori-application-go/commits)
 [![wakatime](https://wakatime.com/badge/user/a2c981ca-317d-4b34-8ed9-4264fbfdb775/project/018b429b-32da-436c-9bb1-d665600b5c4c.svg)](https://wakatime.com/badge/user/a2c981ca-317d-4b34-8ed9-4264fbfdb775/project/018b429b-32da-436c-9bb1-d665600b5c4c)
 
 ## 1.设计和架构

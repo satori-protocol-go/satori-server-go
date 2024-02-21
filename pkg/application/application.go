@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/dezhishen/satori-server-go/pkg/config"
+	"github.com/dezhishen/satori-application-go/pkg/config"
 	"github.com/gin-gonic/gin"
 )
 

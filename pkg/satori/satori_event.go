@@ -1,6 +1,6 @@
 package satori
 
-import "github.com/dezhishen/satori-server-go/pkg/application"
+import "github.com/dezhishen/satori-application-go/pkg/application"
 
 // Event触发
 type EventEmitter interface {
