@@ -1,6 +1,6 @@
 package event
 
-import "github.com/dezhishen/satori-model-go/pkg/channel"
+import "github.com/satori-protocol-go/satori-model-go/pkg/channel"
 
 type ChannelEventInstance interface {
 	EmitChannelCreated(c channel.Channel) error

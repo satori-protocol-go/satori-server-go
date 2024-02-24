@@ -1,6 +1,6 @@
 package main
 
-import "github.com/dezhishen/satori-server-go/internal/cmd"
+import "github.com/satori-protocol-go/satori-server-go/internal/cmd"
 
 func main() {
 	cmd.Start()

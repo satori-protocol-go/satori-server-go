@@ -3,12 +3,12 @@
 > ![WIP](https://img.shields.io/badge/WIP-red) 此项目正处于开发中，且作者是个拖延症晚期
 
 [![](https://img.shields.io/github/license/dezhishen/satori-server-go.svg?logo=github)](./LICENSE)
-[![](https://img.shields.io/github/stars/dezhishen/satori-server-go.svg?logo=github)](https://github.com/dezhishen/satori-server-go/stargazers)
-[![](https://img.shields.io/github/forks/dezhishen/satori-server-go.svg?logo=github)](https://github.com/dezhishen/satori-server-go/network/members)
-[![](https://img.shields.io/github/contributors/dezhishen/satori-server-go.svg?logo=github)](https://github.com/dezhishen/satori-server-go/graphs/contributors)
+[![](https://img.shields.io/github/stars/dezhishen/satori-server-go.svg?logo=github)](https://github.com/satori-protocol-go/satori-server-go/stargazers)
+[![](https://img.shields.io/github/forks/dezhishen/satori-server-go.svg?logo=github)](https://github.com/satori-protocol-go/satori-server-go/network/members)
+[![](https://img.shields.io/github/contributors/dezhishen/satori-server-go.svg?logo=github)](https://github.com/satori-protocol-go/satori-server-go/graphs/contributors)
 
-[![](https://img.shields.io/github/commit-activity/m/dezhishen/satori-server-go?logo=github)](https://github.com/dezhishen/satori-server-go/graphs/commit-activity)
-[![](https://img.shields.io/github/last-commit/dezhishen/satori-server-go.svg?logo=github)](https://github.com/dezhishen/satori-server-go/commits)
+[![](https://img.shields.io/github/commit-activity/m/dezhishen/satori-server-go?logo=github)](https://github.com/satori-protocol-go/satori-server-go/graphs/commit-activity)
+[![](https://img.shields.io/github/last-commit/dezhishen/satori-server-go.svg?logo=github)](https://github.com/satori-protocol-go/satori-server-go/commits)
 [![wakatime](https://wakatime.com/badge/user/a2c981ca-317d-4b34-8ed9-4264fbfdb775/project/018b429b-32da-436c-9bb1-d665600b5c4c.svg)](https://wakatime.com/badge/user/a2c981ca-317d-4b34-8ed9-4264fbfdb775/project/018b429b-32da-436c-9bb1-d665600b5c4c)
 
 ## 1.设计和架构
@@ -53,5 +53,5 @@ http服务|接收和处理资源变更的请求|接收事件后立刻触发事�
 事件管理|用于接收外部事件变更后广播给对应的所有监听者，需要提供监听者注册能力|-
 资源管理|存储资源和资源事件|资源本身必须是有序队列，类似feed
 插件管理|插件完整生命周期维护，提供与插件的交互能力，另外提供一个go语言的插件builder，加速插件开发|基于[hashicorp/go-plugin](https://github.com/hashicorp/go-plugin)，且需要提供一份脱离语言的文档/模板仓库
-资源模型|资源模型的struct，且需要提供grpc和json报文能力|单独建一个仓库[dezhishen/satori-model-go](https://github.com/dezhishen/satori-model-go)
+资源模型|资源模型的struct，且需要提供grpc和json报文能力|单独建一个仓库[dezhishen/satori-model-go](https://github.com/satori-protocol-go/satori-model-go)
 事件渠道|基于一个接口，实现ws/webhook两种渠道|-

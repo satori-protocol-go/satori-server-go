@@ -1,7 +1,7 @@
 package event
 
 import (
-	"github.com/dezhishen/satori-model-go/pkg/guild"
+	"github.com/satori-protocol-go/satori-model-go/pkg/guild"
 )
 
 type GuildEventInstance interface {

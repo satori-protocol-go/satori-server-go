@@ -4,8 +4,8 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/dezhishen/satori-server-go/pkg/config"
 	"github.com/gin-gonic/gin"
+	"github.com/satori-protocol-go/satori-server-go/pkg/config"
 )
 
 type Instance interface {

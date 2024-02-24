@@ -1,6 +1,6 @@
 package plugin
 
-import "github.com/dezhishen/satori-server-go/pkg/adaptor"
+import "github.com/satori-protocol-go/satori-server-go/pkg/adaptor"
 
 type PluginType string
 

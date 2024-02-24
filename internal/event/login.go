@@ -1,6 +1,6 @@
 package event
 
-import "github.com/dezhishen/satori-model-go/pkg/login"
+import "github.com/satori-protocol-go/satori-model-go/pkg/login"
 
 type LoginEventInstance interface {
 	// login-added

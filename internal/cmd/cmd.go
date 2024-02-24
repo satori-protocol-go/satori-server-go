@@ -3,10 +3,10 @@ package cmd
 import (
 	"context"
 
-	"github.com/dezhishen/satori-server-go/pkg/adaptor"
-	"github.com/dezhishen/satori-server-go/pkg/application"
-	"github.com/dezhishen/satori-server-go/pkg/config"
-	"github.com/dezhishen/satori-server-go/pkg/plugin"
+	"github.com/satori-protocol-go/satori-server-go/pkg/adaptor"
+	"github.com/satori-protocol-go/satori-server-go/pkg/application"
+	"github.com/satori-protocol-go/satori-server-go/pkg/config"
+	"github.com/satori-protocol-go/satori-server-go/pkg/plugin"
 	log "github.com/sirupsen/logrus"
 )
 

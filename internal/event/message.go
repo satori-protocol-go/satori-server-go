@@ -1,6 +1,6 @@
 package event
 
-import "github.com/dezhishen/satori-model-go/pkg/message"
+import "github.com/satori-protocol-go/satori-model-go/pkg/message"
 
 type MessageEventInstance interface {
 	EmitMessageCreated(msg message.Message) error
