@@ -59,5 +59,5 @@ graph LR;
 | 事件管理  | 用于接收外部事件变更后广播给对应的所有监听者，需要提供监听者注册能力                         | -                                                                                                        |
 | 资源管理  | 存储资源和资源事件                                                                           | 资源本身必须是有序队列，类似 feed                                                                        |
 | 插件管理  | 插件完整生命周期维护，提供与插件的交互能力，另外提供一个 go 语言的插件 builder，加速插件开发 | 基于[hashicorp/go-plugin](https://github.com/hashicorp/go-plugin)，且需要提供一份脱离语言的文档/模板仓库 |
-| 资源模型  | 资源模型的 struct，且需要提供 grpc 和 json 报文能力                                          | 单独建一个仓库[dezhishen/satori-model-go](https://github.com/satori-protocol-go/satori-model-go)         |
+| 资源模型  | 资源模型的 struct，且需要提供 grpc 和 json 报文能力                                          | 单独建一个仓库[satori-protocol-go/satori-model-go](https://github.com/satori-protocol-go/satori-model-go)         |
 | 事件渠道  | 基于一个接口，实现 ws/webhook 两种渠道                                                       | -                                                                                                        |
